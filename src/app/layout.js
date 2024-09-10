@@ -3,7 +3,9 @@ import './globals.css';
 import Header from './components/shared/Header';
 import Footer from './components/shared/Footer';
 import { Poppins } from 'next/font/google';
-import { NextAuthProvider } from './next';
+
+import Appbar from './components/Appbar';
+import Providers from './components/Providers';
 
 const bermia = localFont({
   src: [
@@ -42,11 +44,15 @@ export default function RootLayout({ children, pageProps, Component }) {
   return (
     <html lang="en" className={`${bermia.variable} ${popFont.variable}`}>
       <body>
-        <NextAuthProvider>
-          <Header />
+        {/* <NextAuthProvider> */}{' '}
+        <Providers>
+          {' '}
+          <Header /> 
+          {/* <Appbar /> */}
           {children}
           <Footer />
-        </NextAuthProvider>
+        </Providers>
+        {/* </NextAuthProvider> */}
       </body>
     </html>
   );
